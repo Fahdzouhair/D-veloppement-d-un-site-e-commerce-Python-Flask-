@@ -1,6 +1,7 @@
 from market import app 
 from flask import render_template
 from market.models import Item , db 
+from market.forms import RegisterForm
 
 @app.route('/')
 @app.route('/home')
@@ -11,6 +12,11 @@ def index():
 def market_page():
     items = Item.query.all()
     return render_template('market.html', items=items)
+
+@app.route("/register")
+def register_page():
+    form = RegisterForm()
+    return render_template('register.html' , form=form)
 
 @app.route('/test')
 def test_page():
@@ -25,5 +31,9 @@ def test_page():
         {'id': 2, 'name': 'Laptop', 'barcode': '123985473165', 'price': 900},
         {'id': 3, 'name': 'Keyboard', 'barcode': '231985128446', 'price': 150}
     ]
-    
+
     return render_template('test.html' , items=items )
+
+
+    
+
