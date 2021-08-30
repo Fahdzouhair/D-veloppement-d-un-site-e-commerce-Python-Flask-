@@ -1,0 +1,8 @@
+db.droop.all();
+
+db.create_all();
+
+U = User.query.filter_by(username= 'fahd').first();
+
+U.id;
+

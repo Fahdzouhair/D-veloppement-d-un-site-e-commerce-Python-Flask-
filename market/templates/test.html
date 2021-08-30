@@ -14,4 +14,16 @@
             <li>{{ item.description }}</li>
         </ul>
     {% endfor %}
+
+    <h1>Test Content for users</h1>
+    {% for user in users %}
+        <ul>
+            <li>{{ user.id }}</li>
+            <li>{{ user.username }}</li>
+            <li>{{ user.email_adress }}</li>
+            <li>{{ user.password_hash }}</li>
+            <li>{{ user.budget }}</li>
+            <li>{{ user.items }}</li>
+        </ul>
+    {% endfor %}
 {% endblock %}
