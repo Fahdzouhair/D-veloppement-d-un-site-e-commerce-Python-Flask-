@@ -9,7 +9,7 @@
         <div style="width : 40%" class="container">
           <!--  <img class="mb-4" src="https://res.cloudinary.com/jimshapedcoding/image/upload/v1597332609/android-icon-192x192_ove2a7.png" alt="">
                     -->
-            <h1 style='margin-top : 10%' class="h3 mb-3 font-weight-normal">
+            <h1 style='margin-top : 10%' class="text-center h3 mb-3 font-weight-normal">
                     Please Create your Account
             </h1>
             <br>
@@ -29,6 +29,11 @@
                 {{ form.password2.label() }}
                 {{ form.password2(class="form-control" , placeholder="Confirm Password") }}
                 <br>
+                <div class="text-center checkbox mb-3">
+                    <h6>Already have an account?</h6>
+                    <a class="btn btn-sm btn-secondary" href="{{ url_for('login_page') }}">Login</a>
+                 </div>
+     
                 {{ form.submit(class="btn btn-lg btn-block btn-primary" , placeholder="Submit") }}
             </form> 
         </div>
