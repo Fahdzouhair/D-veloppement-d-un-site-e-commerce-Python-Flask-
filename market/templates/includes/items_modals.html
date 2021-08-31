@@ -1,0 +1,76 @@
+<style>
+    .modal-content {
+      background-color: #212121;
+      color : #fff;
+    }
+  </style>
+  
+  <!-- More Info -->
+  <div class="mt-5 modal fade" id="Modal-MoreInfo-{{ item.id }}"
+       tabindex="-1"
+       aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div style="border : none" class="modal-header">
+          <h5 class="modal-title" id="ModalLabel">
+            <!-- -->
+            {{ item.name }}
+          </h5>
+          
+        </div>
+        <div class="modal-body">
+          {{ item.description }}
+        </div>
+        <div style="border : none" class="modal-footer">
+          <button type="button" class="font-weight-light btn btn-secondary"
+                  data-dismiss="modal">Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Purchase Confirm -->
+  <div class="mt-3 modal fade" id="Modal-PurchaseConfirm-{{ item.id }}"
+       tabindex="-1"
+       aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div style="border : none" class="modal-header">
+          <h5 style =" background-color: #343a40 ; border-radius: .3rem ; padding : 6px 12px  " class="modal-title" id="ModalLabel">
+            <!-- -->
+            {{ item.name }}
+          </h5>
+          <button type="button" class="ml-auto font-weight-light btn btn-danger"
+                  data-dismiss="modal">Close
+          </button>
+        </div>
+        <div class="modal-body">
+          
+        </div>
+        <form method="post">
+            {{ purchase.hidden_tag() }}
+            {{ purchase.csrf_token }}
+            <h4 class="text-center">
+                Are you sure you want to buy {{ item.name }} for {{ item.price }}$ ?
+            </h4>
+
+            <h6 class="text-center">
+                By clicking Purchase, you will purchase this item.
+            </h6>
+            <br>
+           <div class="text-center w-25 ml-auto mr-auto"> 
+            <input id="purchased_item" name="purchased_item" type="hidden" value="{{item.name}}">
+            {{ purchase.submit(class="ml-auto mr-auto font-weight-light btn btn-outline-success btn-block") }}
+           </div>
+
+        </form>
+        
+        <div style="border : none" class="modal-footer">
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
